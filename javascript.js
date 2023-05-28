@@ -22,6 +22,12 @@ function game() {
         let playerInput = prompt("Up for a game of Rock Paper Scissors? Enter your choice.");
         let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
 
+        // validate player's choice
+           if (!choices.includes(playerSelection)) {
+            console.log("Invalid choice. Exiting the game. Refresh to start a new one.")
+            break;
+        }
+
         // get computer's choice
         let computerSelection = getComputerChoice(choices);
 
