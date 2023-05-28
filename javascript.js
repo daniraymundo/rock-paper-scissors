@@ -1,63 +1,79 @@
-// define choices
-const choices = ["Rock", "Paper", "Scissors"];
+function game() {
+    // define choices
+    const choices = ["Rock", "Paper", "Scissors"];
 
-// computer generates a random choice each time
-function getComputerChoice(choices) {
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    return choices[randomIndex];
-};
+    // start the game with 0 as both scores
+    let playerScore = 0;
+    let computerScore = 0;
 
-// ask the player for their choice, fix case to allow player's input to be case insensitive
-let playerInput = prompt("Up for a game of Rock Paper Scissors? Enter your choice.");
-let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
+    // loop 5 rounds
+    for (let round = 1; round <=5; round++) {
 
-// get computer's choice
-let computerSelection = getComputerChoice(choices);
+        // show current round
+        console.log(`Round ${round}`);
 
-// start the game with 0 as both scores
-let playerScore = 0;
-let computerScore = 0;
+        // computer generates a random choice each time
+        function getComputerChoice(choices) {
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        };
 
-// play one round
-function playRound (playerSelection, computerSelection) {
-    if (choices.includes(playerSelection)) {
-        if (playerSelection === computerSelection) {
-            console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. It's a tie.`)
-            console.log(`Your score: ${playerScore}. Computer's score: ${computerScore}.`)
-        } else if (playerSelection === "Rock") {
-            if (computerSelection === "Paper") {
-                console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Paper beats Rock.`)
-                console.log(`Your score: ${playerScore} . Computer score: ${computerScore}`)
-                return "computer";
+        // ask the player for their choice, fix case to allow player's input to be case insensitive
+        let playerInput = prompt("Up for a game of Rock Paper Scissors? Enter your choice.");
+        let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
+
+        // get computer's choice
+        let computerSelection = getComputerChoice(choices);
+
+        // play one round
+        function playRound (playerSelection, computerSelection) {
+            if (choices.includes(playerSelection)) {
+                if (playerSelection === computerSelection) {
+                    console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. It's a tie.`)
+                } else if (playerSelection === "Rock") {
+                    if (computerSelection === "Paper") {
+                        console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Paper beats Rock.`)
+                        return "computer";
+                    } else {
+                        console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Rock beats Scissors.`)
+                        return "player";
+                    };
+                } else if (playerSelection === "Paper") {
+                    if (computerSelection === "Rock") {
+                        console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Paper beats Rock.`)
+                        return "player";
+                    } else {
+                        console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Scissors beat Paper.`)
+                        return "computer";
+                    };
+                } else if (playerSelection === "Scissors") {
+                    if (computerSelection === "Rock") {
+                        console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Rock beats Scissors.`)
+                        return "computer";
+                    } else {
+                        console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Scissors beat Paper`)
+                        return "player";
+                    }
+                };
             } else {
-                console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Rock beats Scissors.`)
-                console.log(`Your score: ${playerScore} . Computer score: ${computerScore}`)
-                return "player";
-            };
-        } else if (playerSelection === "Paper") {
-            if (computerSelection === "Rock") {
-                console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Paper beats Rock.`)
-                console.log(`Your score: ${playerScore} . Computer score: ${computerScore}`)
-                return "player";
-            } else {
-                console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Scissors beat Paper.`)
-                console.log(`Your score: ${playerScore} . Computer score: ${computerScore}`)
-                return "computer";
-            };
-        } else if (playerSelection === "Scissors") {
-            if (computerSelection === "Rock") {
-                console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Rock beats Scissors.`)
-                console.log(`Your score: ${playerScore} . Computer score: ${computerScore}`)
-                return "computer";
-            } else {
-                console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Scissors beat Paper`)
-                console.log(`Your score: ${playerScore} . Computer score: ${computerScore}`)
-                return "player";
+                return alert("Invalid choice")
             }
         };
-    } else {
-        return alert("Invalid choice")
-    }
+
+        // get the result of a round
+        let result = playRound(playerSelection, computerSelection);
+
+        // give a point to player if player wins, give a point to computer if computer wins
+        if (result === "player") {
+            playerScore++;
+        } else if (result === "computer") {
+            computerScore++;
+        };
+
+        // show current score after each round
+        console.log(`Your score: ${playerScore}. Computer's score ${computerScore}`);
+    };
+         
 };
 
-playRound(playerSelection, computerSelection);
+game();
