@@ -73,7 +73,19 @@ function game() {
         // show current score after each round
         console.log(`Your score: ${playerScore}. Computer's score ${computerScore}`);
     };
-         
+
+// display final result
+if (playerScore > computerScore) {
+    alert("Game over. You win!");
+    alert("Refresh to play another one.");
+} else if (playerScore < computerScore) {
+    alert("Game over. You lose.")
+    alert("Refresh to play another one.");
+} else {
+    alert("Game over. It's a tie.")
+    alert("Refresh to play another one.");
+}
 };
 
 game();
+
