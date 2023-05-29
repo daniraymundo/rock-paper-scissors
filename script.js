@@ -26,11 +26,11 @@ function game() {
         let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
 
         // validate player's choice
-           if (!choices.includes(playerSelection)) {
+        if (!choices.includes(playerSelection)) {
             console.log("Invalid choice. Exiting the game. Refresh to start a new one.")
             gameTerminated = true;
             break;
-        }
+        };
 
         // get computer's choice
         let computerSelection = getComputerChoice(choices);
@@ -39,30 +39,16 @@ function game() {
         function playRound (playerSelection, computerSelection) {
             if (playerSelection === computerSelection) {
                 console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. It's a tie.`)
-            } else if (playerSelection === "Rock") {
-                if (computerSelection === "Paper") {
-                    console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Paper beats Rock.`)
-                    return "computer";
-                } else {
-                    console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Rock beats Scissors.`)
-                    return "player";
-                };
-            } else if (playerSelection === "Paper") {
-                if (computerSelection === "Rock") {
-                    console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Paper beats Rock.`)
-                    return "player";
-                } else {
-                    console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Scissors beat Paper.`)
-                    return "computer";
-                };
-            } else if (playerSelection === "Scissors") {
-                if (computerSelection === "Rock") {
-                    console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Rock beats Scissors.`)
-                    return "computer";
-                } else {
-                    console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Scissors beat Paper`)
-                    return "player";
-                }
+            } else if (
+                (playerSelection === "Rock") && (computerSelection === "Scissors") ||
+                (playerSelection === "Paper") && (computerSelection === "Rock") ||
+                (playerSelection === "Scissors") && (computerSelection === "Paper")
+            ) {
+                console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. You get a point.`)
+                return "player";
+            } else {
+                console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Computer gets a point.`)
+                return "computer";
             };
         };
         // get the result of a round
