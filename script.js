@@ -6,7 +6,7 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    // flag variable to track game termination due to an invalid inpit
+    // flag variable to track game termination due to an invalid input
     let gameTerminated = false;
 
     // loop 5 rounds
