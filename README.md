@@ -11,4 +11,4 @@
     <li> Alerts </li>
 </ul>
 <p> A lot of these are concepts I've encountered for the first time so I had to figure them out as I went.
-<p> I realized just how important it really is to have a well thought-out plan before starting to actually write code. Figuring out the algorithm first and writing it in pseudocode has been really useful for me when I made this. I'll also start utilizing comments now to make my code readable even to non-programmers.
+<p> I realized just how important it really is to have a well thought-out plan before starting to actually write code. Figuring out the algorithm first and writing it in pseudocode has been really useful for me when I made this. I'll also start utilizing comments to explain why I did certain things.
