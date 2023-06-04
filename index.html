@@ -3,9 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
+        <link rel = "stylesheet" href="style.css">
         <script src="script.js"></script>
     </head>
     <body>
-        
+        <div class="title">
+            <h1 class="title-text">Rock Paper Scissors</h1>
+        </div>
+        <div class="mechanics">
+            <h2 class="mechanics-text">First to score 5 points wins the game.</h2>
+        </div>
+        <div class="scores-container">
+            <div class="round"></div>
+            <div class="round-results"></div>
+            <div class="scores">
+                <div class="player-score"></div>
+                <div class="computer-score"></div>
+            </div>
+        </div>
+        <div class ="selection-container">
+            <div class="player-selection"></div>
+            <div class="computer-selection"></div>
+        </div>
+        <div class="options-container">
+            <img src="rps-images/choice-rock.png" alt="rock button" class ="options" id="choice-rock">
+            <img src="rps-images/choice-paper.png" alt="paper button" class ="options" id="choice-paper">
+            <img src="rps-images/choice-scissors.png" alt="scissors button" class = "options" id="choice-scissors">
+        </div>
+        <div class ="modal">
+            <p class ="modal-text"></p>
+            <button class="new-game">New game</button>
+
+        </div>
     </body>
 </html>
