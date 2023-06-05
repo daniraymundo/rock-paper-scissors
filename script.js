@@ -38,7 +38,7 @@ function game() {
             computerSelection.src ="rps-images/comp-paper.png";
         } else {
             computerSelection.src ="rps-images/comp-scissors.png";
-        }
+        };
     };
 
     function playRound (playerChoice, computerChoice) {
