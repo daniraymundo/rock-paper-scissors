@@ -14,6 +14,7 @@ function game() {
     const computerSelection = document.querySelector("#computer-selection");
     const playerScoreElement = document.querySelector("#player-score");
     const computerScoreElement = document.querySelector("#computer-score");
+    const roundResult = document.querySelector("#result-text");
 
 
     function getComputerChoice(choices) {
@@ -60,9 +61,13 @@ function game() {
     function updateScores(result) {
         if (result === "player") {
             playerScore++;
+            roundResult.textContent = "You get a point!";
         } else if (result === "computer") {
             computerScore++;
-        };
+            roundResult.textContent = "Computer gets a point!";
+        } else {
+            roundResult.textContent = "It's a tie!";
+        }
         playerScoreElement.textContent = playerScore;
         computerScoreElement.textContent = computerScore;
     };
