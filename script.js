@@ -4,56 +4,94 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    // // A flag variable is used to track if the game was terminated prematurely due to an invalid user input
-    // let gameTerminated = false;
+    let playerChoice;
+    let computerChoice;
 
     const rockButton = document.querySelector("#choice-rock");
     const paperButton = document.querySelector("#choice-paper");
     const scissorsButton = document.querySelector("#choice-scissors");
     const playerSelection = document.querySelector("#player-selection");
     const computerSelection = document.querySelector("#computer-selection");
+    const playerScoreElement = document.querySelector("#player-score");
+    const computerScoreElement = document.querySelector("#computer-score");
+
 
     function getComputerChoice(choices) {
         const randomIndex = Math.floor(Math.random() * choices.length);
         return choices[randomIndex];
     };
 
-    rockButton.addEventListener("click", () => {
-        displayPlayerSelection("rock");
-        displayComputerSelection(getComputerChoice(choices));
-    });
-
-    paperButton.addEventListener("click", () => {
-        displayPlayerSelection("paper");
-        displayComputerSelection(getComputerChoice(choices));
-    });
-
-    scissorsButton.addEventListener("click", () => {
-        displayPlayerSelection("scissors");
-        displayComputerSelection(getComputerChoice(choices));
-    });
-
-    function displayPlayerSelection(choice) {
-        if (choice === "rock") {
+    function displayPlayerSelection(playerChoice) {
+        if (playerChoice === "Rock") {
             playerSelection.src ="rps-images/player-rock.png";
-        } else if (choice === "paper") {
+        } else if (playerChoice === "Paper") {
             playerSelection.src ="rps-images/player-paper.png";
         } else {
             playerSelection.src ="rps-images/player-scissors.png";
         }
     };
 
-    function displayComputerSelection(choice) {
-        if (getComputerChoice(choices) === "Rock") {
+    function displayComputerSelection(computerChoice) {
+        if (computerChoice === "Rock") {
             computerSelection.src ="rps-images/comp-rock.png";
-        } else if (getComputerChoice(choices) === "Paper") {
+        } else if (computerChoice === "Paper") {
             computerSelection.src ="rps-images/comp-paper.png";
         } else {
             computerSelection.src ="rps-images/comp-scissors.png";
         }
     };
+
+    function playRound (playerChoice, computerChoice) {
+        if (playerChoice === computerChoice) {
+            console.log(`You chose ${playerChoice}. Computer chose ${computerChoice}. It's a tie.`)
+        } else if (
+            (playerChoice === "Rock") && (computerChoice === "Scissors") ||
+            (playerChoice === "Paper") && (computerChoice === "Rock") ||
+            (playerChoice === "Scissors") && (computerChoice === "Paper")
+        ) {
+            console.log(`You chose ${playerChoice}. Computer chose ${computerChoice}. You get a point.`)
+            return "player";
+        } else {
+            console.log(`You chose ${playerChoice}. Computer chose ${computerChoice}. Computer gets a point.`)
+            return "computer";
+        };
+    };
+
+    function updateScores(result) {
+        if (result === "player") {
+            playerScore++;
+        } else if (result === "computer") {
+            computerScore++;
+        };
+        playerScoreElement.textContent = playerScore;
+        computerScoreElement.textContent = computerScore;
+    };
+        
+    function handleButtonClick(playerChoice) {
+        const computerChoice = getComputerChoice(choices);
+        displayPlayerSelection(playerChoice);
+        displayComputerSelection(computerChoice);
+        const result = playRound(playerChoice,computerChoice);
+        updateScores(result);
+    }
+
+
+    rockButton.addEventListener("click", () => {
+        handleButtonClick("Rock")
+    });
+
+    paperButton.addEventListener("click", () => {
+        handleButtonClick("Paper")
+    });
+
+    scissorsButton.addEventListener("click", () => {
+        handleButtonClick("Scissors")
+    });
+
     
 };
+game();
+
 //     for (let round = 1; round <=5; round++) {
 
         
@@ -76,30 +114,9 @@ function game() {
         
 
         
-//         function playRound (playerSelection, computerSelection) {
-//             if (playerSelection === computerSelection) {
-//                 console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. It's a tie.`)
-//             } else if (
-//                 (playerSelection === "Rock") && (computerSelection === "Scissors") ||
-//                 (playerSelection === "Paper") && (computerSelection === "Rock") ||
-//                 (playerSelection === "Scissors") && (computerSelection === "Paper")
-//             ) {
-//                 console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. You get a point.`)
-//                 return "player";
-//             } else {
-//                 console.log(`You chose ${playerSelection}. Computer chose ${computerSelection}. Computer gets a point.`)
-//                 return "computer";
-//             };
-//         };
+       
         
-//         let result = playRound(playerSelection, computerSelection);
 
-        
-//         if (result === "player") {
-//             playerScore++;
-//         } else if (result === "computer") {
-//             computerScore++;
-//         };
 
         
 //         console.log(`Your score: ${playerScore}.\nComputer's score: ${computerScore}`);
@@ -121,4 +138,4 @@ function game() {
 //     };
 // };
 
-game();
+
