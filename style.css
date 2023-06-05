@@ -70,6 +70,11 @@ html {
     font-weight: bold;
 }
 
+.win {
+    font-size: 3rem;
+    color: #58a681;
+}
+
 #player-score,
 #computer-score {
     font-size: 2rem;

@@ -12,14 +12,14 @@ function game() {
     const scissorsButton = document.querySelector("#choice-scissors");
     const playerSelection = document.querySelector("#player-selection");
     const computerSelection = document.querySelector("#computer-selection");
-    const playerScoreElement = document.querySelector("#player-score");
-    const computerScoreElement = document.querySelector("#computer-score");
+    const playerScoreElement = document.querySelector(".player-score");
+    const computerScoreElement = document.querySelector(".computer-score");
     const roundResult = document.querySelector("#result-text");
     const modal = document.querySelector("#modal");
     const finalResult = document.querySelector("#final-result");
     const playAgain = document.querySelector("#play-again-button");
-    const playerLabel = document.querySelector("#player-label");
-    const computerLabel = document.querySelector("#computer-label");
+    const playerLabel = document.querySelector(".player-label");
+    const computerLabel = document.querySelector(".computer-label");
 
 
     function getComputerChoice(choices) {
@@ -75,10 +75,21 @@ function game() {
         if (result === "player") {
             playerScore++;
             roundResult.textContent = "You get a point!";
-
+            playerScoreElement.classList.add("win");
+            playerLabel.classList.add("win");
+            setTimeout (() => {
+                playerScoreElement.classList.remove("win");
+                playerLabel.classList.remove("win");
+            }, 800);
         } else if (result === "computer") {
             computerScore++;
             roundResult.textContent = "Computer gets a point!";
+            computerScoreElement.classList.add("win");
+            computerLabel.classList.add("win");
+            setTimeout (() => {
+                computerScoreElement.classList.remove("win");
+                computerLabel.classList.remove("win");
+            }, 800);
         } else {
             roundResult.textContent = "It's a tie!";
         }
