@@ -15,6 +15,8 @@ function game() {
     const playerScoreElement = document.querySelector("#player-score");
     const computerScoreElement = document.querySelector("#computer-score");
     const roundResult = document.querySelector("#result-text");
+    const modal = document.querySelector("#modal");
+    const finalResult = document.querySelector("#final-result");
 
 
     function getComputerChoice(choices) {
@@ -78,8 +80,15 @@ function game() {
         displayComputerSelection(computerChoice);
         const result = playRound(playerChoice,computerChoice);
         updateScores(result);
-    }
-
+        if (playerScore === 5 || computerScore === 5) {
+            if (playerScore > computerScore) {
+                finalResult.textContent = "You win!"
+            } else {
+                finalResult.textContent = "You lose."
+            }
+            modal.classList.add("show");
+        }
+    };
 
     rockButton.addEventListener("click", () => {
         handleButtonClick("Rock")
