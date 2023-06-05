@@ -17,6 +17,7 @@ function game() {
     const roundResult = document.querySelector("#result-text");
     const modal = document.querySelector("#modal");
     const finalResult = document.querySelector("#final-result");
+    const playAgain = document.querySelector("#play-again-button");
 
 
     function getComputerChoice(choices) {
@@ -72,7 +73,11 @@ function game() {
         }
         playerScoreElement.textContent = playerScore;
         computerScoreElement.textContent = computerScore;
+
+        console.log (playerScore);
+        console.log (computerScore);
     };
+
         
     function handleButtonClick(playerChoice) {
         const computerChoice = getComputerChoice(choices);
@@ -117,6 +122,17 @@ function game() {
         handleButtonClick("Scissors")
     });
 
+    function restartGame() {
+        playerScoreElement.textContent = 0;
+        computerScoreElement.textContent = 0;
+        playerScore = 0;
+        computerScore = 0;
+        playerSelection.src = "rps-images/blank-placeholder.png";
+        computerSelection.src = "rps-images/blank-placeholder.png";
+        modal.classList.remove("show");
+    };
+    
+    playAgain.addEventListener("click",restartGame);
     
 };
 game();
