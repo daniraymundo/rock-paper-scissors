@@ -18,6 +18,8 @@ function game() {
     const modal = document.querySelector("#modal");
     const finalResult = document.querySelector("#final-result");
     const playAgain = document.querySelector("#play-again-button");
+    const playerLabel = document.querySelector("#player-label");
+    const computerLabel = document.querySelector("#computer-label");
 
 
     function getComputerChoice(choices) {
@@ -33,6 +35,10 @@ function game() {
         } else {
             playerSelection.src ="rps-images/player-scissors.png";
         }
+
+        setTimeout(() => {
+            playerSelection.src ="rps-images/blank-placeholder.png";
+        }, 800);
     };
 
     function displayComputerSelection(computerChoice) {
@@ -42,7 +48,11 @@ function game() {
             computerSelection.src ="rps-images/comp-paper.png";
         } else {
             computerSelection.src ="rps-images/comp-scissors.png";
-        };
+        }
+
+        setTimeout(() => {
+            computerSelection.src ="rps-images/blank-placeholder.png";
+        }, 800);
     };
 
     function playRound (playerChoice, computerChoice) {
@@ -65,6 +75,7 @@ function game() {
         if (result === "player") {
             playerScore++;
             roundResult.textContent = "You get a point!";
+
         } else if (result === "computer") {
             computerScore++;
             roundResult.textContent = "Computer gets a point!";
