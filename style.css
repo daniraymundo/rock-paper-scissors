@@ -121,6 +121,11 @@ html {
     height: 15rem;
 }
 
+.options:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
 #modal {
     display: none;
     position: fixed;
