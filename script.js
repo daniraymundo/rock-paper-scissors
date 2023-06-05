@@ -52,7 +52,7 @@ function game() {
 
         setTimeout(() => {
             computerSelection.src ="rps-images/blank-placeholder.png";
-        }, 800);
+        }, 1000);
     };
 
     function playRound (playerChoice, computerChoice) {
@@ -75,23 +75,32 @@ function game() {
         if (result === "player") {
             playerScore++;
             roundResult.textContent = "You get a point!";
+            setTimeout (() => {
+                roundResult.textContent = "";
+            }, 1000);
             playerScoreElement.classList.add("win");
             playerLabel.classList.add("win");
             setTimeout (() => {
                 playerScoreElement.classList.remove("win");
                 playerLabel.classList.remove("win");
-            }, 800);
+            }, 1000);
         } else if (result === "computer") {
             computerScore++;
             roundResult.textContent = "Computer gets a point!";
+            setTimeout (() => {
+                roundResult.textContent = "";
+            }, 1000);
             computerScoreElement.classList.add("win");
             computerLabel.classList.add("win");
             setTimeout (() => {
                 computerScoreElement.classList.remove("win");
                 computerLabel.classList.remove("win");
-            }, 800);
+            }, 1000);
         } else {
             roundResult.textContent = "It's a tie!";
+            setTimeout (() => {
+                roundResult.textContent = "";
+            }, 1000);
         }
         playerScoreElement.textContent = playerScore;
         computerScoreElement.textContent = computerScore;
