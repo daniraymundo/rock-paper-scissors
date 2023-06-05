@@ -90,15 +90,30 @@ function game() {
         }
     };
 
-    rockButton.addEventListener("click", () => {
+    rockButton.addEventListener("click", (event) => {        
+        if (modal.classList.contains("show")) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+        }
         handleButtonClick("Rock")
     });
 
-    paperButton.addEventListener("click", () => {
+    paperButton.addEventListener("click", (event) => {
+        if (modal.classList.contains("show")) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+        }
         handleButtonClick("Paper")
     });
 
-    scissorsButton.addEventListener("click", () => {
+    scissorsButton.addEventListener("click", (event) => {
+        if (modal.classList.contains("show")) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+        }
         handleButtonClick("Scissors")
     });
 
