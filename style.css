@@ -89,7 +89,7 @@ html {
 
 #player-selection,
 #computer-selection {
-
+    max-height: 45vh;
     height: auto;
     width: 50%;
 }
@@ -114,7 +114,7 @@ html {
 }
 
 .options {
-    max-width: 10rem;
+    max-width: 8rem;
     height: auto;
 }
 
@@ -157,7 +157,7 @@ html {
 }
 
 #play-again-button {
-    height: 5rem;
+    height: 4.5rem;
     width: 17rem;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 2rem;
