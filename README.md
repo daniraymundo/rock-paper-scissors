@@ -1,7 +1,7 @@
 # About
 <p> This is the first ever program I built from scratch! It's part of The Odin Project's Foundations Course.<p>
 <p> It's a simple game of Rock Paper Scissors played against the computer. First to score 5 wins.
-<p> <a href="https://daniraymundo.github.io/rock-paper-scissors/">Live site</a></p>
+<p> Play the game <a href="https://daniraymundo.github.io/rock-paper-scissors/">here</a>.</p>
     
 # Update
 <p> I've added a simple GUI. As a complete noob learning web dev for the first time and following TOP's curriculum, I have very limited knowledge of responsive web design. I tried my best to fix some of the layout issues I knew how to fix but I know there are still some left, especially when it comes to viewing this from mobile devices. I'll revisit it later on to fix these issues. </p>
