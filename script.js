@@ -37,6 +37,7 @@ function game() {
             playerSelection.src ="rps-images/player-scissors.png";
         }
 
+        // resets the player selection after every turn
         setTimeout(() => {
             playerSelection.src ="rps-images/blank-placeholder.png";
         }, 1200);
@@ -51,6 +52,7 @@ function game() {
             computerSelection.src ="rps-images/comp-scissors.png";
         }
 
+        // resets the computer selection after every turn
         setTimeout(() => {
             computerSelection.src ="rps-images/blank-placeholder.png";
         }, 1200);
@@ -58,16 +60,14 @@ function game() {
 
     function playRound (playerChoice, computerChoice) {
         if (playerChoice === computerChoice) {
-            console.log(`You chose ${playerChoice}. Computer chose ${computerChoice}. It's a tie.`)
+            return;
         } else if (
             (playerChoice === "Rock") && (computerChoice === "Scissors") ||
             (playerChoice === "Paper") && (computerChoice === "Rock") ||
             (playerChoice === "Scissors") && (computerChoice === "Paper")
         ) {
-            console.log(`You chose ${playerChoice}. Computer chose ${computerChoice}. You get a point.`)
             return "player";
         } else {
-            console.log(`You chose ${playerChoice}. Computer chose ${computerChoice}. Computer gets a point.`)
             return "computer";
         };
     };
@@ -101,9 +101,6 @@ function game() {
         }
         playerScoreElement.textContent = playerScore;
         computerScoreElement.textContent = computerScore;
-
-        console.log (playerScore);
-        console.log (computerScore);
     };
 
     function showModal() {
@@ -174,51 +171,3 @@ function game() {
     
 };
 game();
-
-//     for (let round = 1; round <=5; round++) {
-
-        
-//         console.log(`Round ${round}`);
-
-        
-       
-        
-//         let playerInput = prompt("Up for a game of Rock Paper Scissors? Enter your choice.");
-//         let playerSelection = playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
-
-        
-//         if (!choices.includes(playerSelection)) {
-//             console.log("Invalid choice. Exiting the game. Refresh to start a new one.")
-//             gameTerminated = true;
-//             break;
-//         };
-
-        
-        
-
-        
-       
-        
-
-
-        
-//         console.log(`Your score: ${playerScore}.\nComputer's score: ${computerScore}`);
-
-//     };
-
-//     // The final result is only displayed when all 5 rounds have been completed, i.e, the game wasn't stopped due to an invalid user input.
-//     if (!gameTerminated) {
-//         if (playerScore > computerScore) {
-//             alert("Game over. You win!");
-//             alert("Refresh to play another one.");
-//         } else if (playerScore < computerScore) {
-//             alert("Game over. You lose.")
-//             alert("Refresh to play another one.");
-//         } else {
-//             alert("Game over. It's a tie.")
-//             alert("Refresh to play another one.");
-//         }
-//     };
-// };
-
-
