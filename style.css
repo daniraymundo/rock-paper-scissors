@@ -175,6 +175,12 @@ html {
 
 }
 
+#play-again-button:hover {
+    background-color: #f26d6d;
+    opacity: 0.8;
+
+}
+
 #modal-text,
 #final-result {
     font-size: 3rem;
