@@ -11,6 +11,7 @@
         <li> Query selectors </li>
         <li> Adding and removing classes to trigger certain styles </li>
         <li> Event listeners </li>
+        <li> setTimeout </li>
         <li> Using rem, em, %, vh, vw, max, and min sizes instead of using px for everything </li>
         <li> Preventing default event behavior </li>
         <li> Adding an overlay </li>
