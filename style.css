@@ -84,12 +84,12 @@ html {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    height: 50vh;
+    height: 45vh;
 }
 
 #player-selection,
 #computer-selection {
-    
+
     height: auto;
     width: 50%;
 }
@@ -129,8 +129,8 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 20rem;
-    width: 50rem;
+    height: 15rem;
+    width: 45rem;
 }
 
 #modal-overlay.show {
@@ -158,7 +158,7 @@ html {
 
 #play-again-button {
     height: 5rem;
-    width: 20rem;
+    width: 17rem;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 2rem;
     font-weight: 700;
@@ -181,5 +181,5 @@ html {
 
 #modal-text,
 #final-result {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
