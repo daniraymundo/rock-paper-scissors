@@ -16,6 +16,7 @@ function game() {
     const computerScoreElement = document.querySelector(".computer-score");
     const roundResult = document.querySelector(".result-text");
     const modal = document.querySelector("#modal");
+    const modalOverlay = document.querySelector("#modal-overlay");
     const finalResult = document.querySelector("#final-result");
     const playAgain = document.querySelector("#play-again-button");
     const playerContainer = document.querySelector(".player-container");
@@ -38,7 +39,7 @@ function game() {
 
         setTimeout(() => {
             playerSelection.src ="rps-images/blank-placeholder.png";
-        }, 1000);
+        }, 1200);
     };
 
     function displayComputerSelection(computerChoice) {
@@ -52,7 +53,7 @@ function game() {
 
         setTimeout(() => {
             computerSelection.src ="rps-images/blank-placeholder.png";
-        }, 1000);
+        }, 1200);
     };
 
     function playRound (playerChoice, computerChoice) {
@@ -105,7 +106,16 @@ function game() {
         console.log (computerScore);
     };
 
-        
+    function showModal() {
+        modal.classList.add("show");
+        modalOverlay.classList.add("show");
+    };
+
+    function hideModal() {
+        modal.classList.remove("show");
+        modalOverlay.classList.remove("show");
+    };
+
     function handleButtonClick(playerChoice) {
         const computerChoice = getComputerChoice(choices);
         displayPlayerSelection(playerChoice);
@@ -118,7 +128,7 @@ function game() {
             } else {
                 finalResult.textContent = "You lose."
             }
-            modal.classList.add("show");
+            showModal();
         }
     };
 
@@ -156,8 +166,9 @@ function game() {
         computerScore = 0;
         playerSelection.src = "rps-images/blank-placeholder.png";
         computerSelection.src = "rps-images/blank-placeholder.png";
-        modal.classList.remove("show");
+        hideModal();
     };
+
     
     playAgain.addEventListener("click",restartGame);
     
