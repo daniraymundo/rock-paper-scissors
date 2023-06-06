@@ -14,12 +14,12 @@ function game() {
     const computerSelection = document.querySelector("#computer-selection");
     const playerScoreElement = document.querySelector(".player-score");
     const computerScoreElement = document.querySelector(".computer-score");
-    const roundResult = document.querySelector("#result-text");
+    const roundResult = document.querySelector(".result-text");
     const modal = document.querySelector("#modal");
     const finalResult = document.querySelector("#final-result");
     const playAgain = document.querySelector("#play-again-button");
-    const playerLabel = document.querySelector(".player-label");
-    const computerLabel = document.querySelector(".computer-label");
+    const playerContainer = document.querySelector(".player-container");
+    const computerContainer = document.querySelector(".computer-container");
 
 
     function getComputerChoice(choices) {
@@ -38,7 +38,7 @@ function game() {
 
         setTimeout(() => {
             playerSelection.src ="rps-images/blank-placeholder.png";
-        }, 800);
+        }, 1000);
     };
 
     function displayComputerSelection(computerChoice) {
@@ -77,30 +77,26 @@ function game() {
             roundResult.textContent = "You get a point!";
             setTimeout (() => {
                 roundResult.textContent = "";
-            }, 1000);
-            playerScoreElement.classList.add("win");
-            playerLabel.classList.add("win");
+            }, 1200);
+            playerContainer.classList.add("win");
             setTimeout (() => {
-                playerScoreElement.classList.remove("win");
-                playerLabel.classList.remove("win");
-            }, 1000);
+                playerContainer.classList.remove("win");
+            }, 1200);
         } else if (result === "computer") {
             computerScore++;
             roundResult.textContent = "Computer gets a point!";
             setTimeout (() => {
                 roundResult.textContent = "";
-            }, 1000);
-            computerScoreElement.classList.add("win");
-            computerLabel.classList.add("win");
+            }, 1200);
+            computerContainer.classList.add("win");
             setTimeout (() => {
-                computerScoreElement.classList.remove("win");
-                computerLabel.classList.remove("win");
-            }, 1000);
+                computerContainer.classList.remove("win");
+            }, 1200);
         } else {
             roundResult.textContent = "It's a tie!";
             setTimeout (() => {
                 roundResult.textContent = "";
-            }, 1000);
+            }, 1200);
         }
         playerScoreElement.textContent = playerScore;
         computerScoreElement.textContent = computerScore;
