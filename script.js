@@ -76,8 +76,10 @@ function game() {
         if (result === "player") {
             playerScore++;
             roundResult.textContent = "You get a point!";
+            // changes the text content to a non-breaking space
+            // so that the div holds its height even when empty during the transition effect
             setTimeout (() => {
-                roundResult.textContent = "";
+                roundResult.textContent = "\u00A0";
             }, 1200);
             playerContainer.classList.add("win");
             setTimeout (() => {
@@ -87,7 +89,7 @@ function game() {
             computerScore++;
             roundResult.textContent = "Computer gets a point!";
             setTimeout (() => {
-                roundResult.textContent = "";
+                roundResult.textContent = "\u00A0";
             }, 1200);
             computerContainer.classList.add("win");
             setTimeout (() => {
@@ -96,7 +98,7 @@ function game() {
         } else {
             roundResult.textContent = "It's a tie!";
             setTimeout (() => {
-                roundResult.textContent = "";
+                roundResult.textContent = "\u00A0";
             }, 1200);
         }
         playerScoreElement.textContent = playerScore;

@@ -19,11 +19,14 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 .title-text {
-    font-size: 6rem;
-    margin: 2rem 0 0 0; 
+    font-size: 4rem;
+    padding-top: 1rem;
+    margin: 0;
 }
 
 .mechanics {
@@ -33,21 +36,21 @@ html {
 }
 
 .mechanics-text {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    padding: 0.5rem;
-    margin-top: -0.5rem;
+    margin: 0;
 }
 
 .result-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 8rem;
+    text-align: center;
+    padding: 0.5rem;
 }
 
 .result-text {
-    font-size: 3.5rem;
+    font-size: 3rem;
     padding: 0;
 }
 
@@ -55,42 +58,39 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6rem;
     width: 100%;
     padding: 0;
-    height: 3rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
+    height: 3rem;
+    padding: 0.5rem;
 }
 
-.player-container {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-}
-
+.player-container,
 .computer-container {
     width: 50%;
     display: flex;
     justify-content: center;
+    
 }
 
 .win {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #58a681;
 }
 
 .selection-container {
-    height: 40rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+    height: 50vh;
 }
 
 #player-selection,
 #computer-selection {
-    height: 100%;
+    
+    height: auto;
     width: 50%;
 }
 
@@ -98,26 +98,24 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    height: 5rem;
 }
 
 #instruction-text {
-    font-size: 3rem;
+    font-size: 2rem;
+    margin: 0;  
 }
 .options-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15rem;
     gap: 2rem;
-    margin-bottom: 2rem;
+    max-width: 100%;
+    margin-top: 1rem;
 }
 
 .options {
-    width: 15rem;
-    height: 15rem;
+    max-width: 10rem;
+    height: auto;
 }
 
 .options:hover {
