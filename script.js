@@ -16,7 +16,6 @@ function game() {
     const computerScoreElement = document.querySelector(".computer-score");
     const roundResult = document.querySelector(".result-text");
     const modal = document.querySelector("#modal");
-    const modalOverlay = document.querySelector("#modal-overlay");
     const finalResult = document.querySelector("#final-result");
     const playAgain = document.querySelector("#play-again-button");
     const playerContainer = document.querySelector(".player-container");
@@ -105,16 +104,6 @@ function game() {
         computerScoreElement.textContent = computerScore;
     };
 
-    function showModal() {
-        modal.classList.add("show");
-        modalOverlay.classList.add("show");
-    };
-
-    function hideModal() {
-        modal.classList.remove("show");
-        modalOverlay.classList.remove("show");
-    };
-
     function handleButtonClick(playerChoice) {
         const computerChoice = getComputerChoice(choices);
         displayPlayerSelection(playerChoice);
@@ -127,34 +116,21 @@ function game() {
             } else {
                 finalResult.textContent = "You lose."
             }
-            showModal();
+            setTimeout (() => {
+                modal.showModal();
+            }, 700);
         }
     };
 
     rockButton.addEventListener("click", (event) => {        
-        if (modal.classList.contains("show")) {
-            event.preventDefault();
-            event.stopPropagation();
-            return;
-        }
         handleButtonClick("Rock")
     });
 
     paperButton.addEventListener("click", (event) => {
-        if (modal.classList.contains("show")) {
-            event.preventDefault();
-            event.stopPropagation();
-            return;
-        }
         handleButtonClick("Paper")
     });
 
     scissorsButton.addEventListener("click", (event) => {
-        if (modal.classList.contains("show")) {
-            event.preventDefault();
-            event.stopPropagation();
-            return;
-        }
         handleButtonClick("Scissors")
     });
 
@@ -165,7 +141,7 @@ function game() {
         computerScore = 0;
         playerSelection.src = "rps-images/blank-placeholder.png";
         computerSelection.src = "rps-images/blank-placeholder.png";
-        hideModal();
+        modal.close();
     };
 
     
